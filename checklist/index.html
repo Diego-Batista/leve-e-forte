@@ -213,13 +213,7 @@ p{margin:0;text-wrap:pretty}
 
 <script>
 (function () {
-  // Formulário da Brevo: cole a URL do atributo "action" do formulário criado na Brevo.
-  // Os nomes dos campos abaixo são os atributos da sua lista de contatos na Brevo.
-  var BREVO = {
-    action: "",
-    campos: { nome: "FIRSTNAME", email: "EMAIL", whatsapp: "WHATSAPP" }
-  };
-
+  // Os contatos vão para a lista da Brevo pela função /api/subscribe (chave guardada na Vercel).
   var form = document.getElementById("form");
   var btn = document.getElementById("enviar");
   var email = document.getElementById("email");
@@ -227,13 +221,6 @@ p{margin:0;text-wrap:pretty}
   var emailErr = document.getElementById("email-err");
   var aceiteErr = document.getElementById("aceite-err");
   var ok = document.getElementById("sucesso");
-
-  function telefone(v) {
-    var d = (v || "").replace(/\D/g, "");
-    if (!d) return "";
-    if (d.length <= 11) d = "55" + d;
-    return "+" + d;
-  }
 
   function valida() {
     var bom = true;
@@ -259,27 +246,29 @@ p{margin:0;text-wrap:pretty}
     btn.disabled = true;
     btn.firstChild.textContent = "Enviando ";
 
-    var envio = Promise.resolve();
-    var robo = document.getElementById("site").value !== "";
-    if (BREVO.action && !robo) {
-      var fd = new FormData();
-      fd.append(BREVO.campos.email, email.value.trim());
-      if (nome) fd.append(BREVO.campos.nome, nome);
-      var tel = telefone(document.getElementById("whatsapp").value);
-      if (tel) fd.append(BREVO.campos.whatsapp, tel);
-      fd.append("OPT_IN", "1");
-      fd.append("email_address_check", "");
-      fd.append("locale", "pt");
-      envio = fetch(BREVO.action, { method: "POST", body: fd, mode: "no-cors" }).catch(function () {});
-    }
+    var dados = {
+      nome: nome,
+      email: email.value.trim(),
+      whatsapp: document.getElementById("whatsapp").value.trim(),
+      site: document.getElementById("site").value,
+      aceite: aceite.checked
+    };
 
-    envio.then(function () {
-      form.hidden = true;
-      if (nome) document.getElementById("sucesso-titulo").textContent = "Pronto, " + nome.split(" ")[0] + ". Seu checklist está aqui.";
-      if (BREVO.action) document.getElementById("sucesso-email").hidden = false;
-      ok.hidden = false;
-      ok.focus();
-    });
+    fetch("/api/subscribe", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(dados)
+    })
+      .then(function (r) { return r.json().catch(function () { return {}; }); })
+      .catch(function () { return {}; })
+      .then(function (resp) {
+        // O checklist é entregue de qualquer forma; o aviso do e-mail só aparece se o contato foi salvo.
+        form.hidden = true;
+        if (nome) document.getElementById("sucesso-titulo").textContent = "Pronto, " + nome.split(" ")[0] + ". Seu checklist está aqui.";
+        if (resp && resp.saved) document.getElementById("sucesso-email").hidden = false;
+        ok.hidden = false;
+        ok.focus();
+      });
   });
 })();
 </script>
