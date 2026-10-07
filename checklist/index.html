@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Checklist gratuito · Leve &amp; Forte</title>
+<meta name="description" content="Checklist gratuito com 10 cuidados para quem usa canetas GLP-1: proteína, treino, enjoo, intestino e segurança. Por Ila Bittencourt, nutricionista, CRN-5 7780.">
+<meta property="og:title" content="Checklist gratuito: 10 cuidados para quem usa a caneta">
+<meta property="og:description" content="Marque o que você já faz e descubra por onde começar. Por Ila Bittencourt, nutricionista.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="/assets/checklist-preview.jpg">
+<meta name="theme-color" content="#56654F">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@400;500;600&display=swap">
+<style>
+/* Layout: título e formulário à esquerda, a folha do checklist dentro do arco verde à direita; mesma paleta do site de vendas. */
+:root{
+  --ivory:#F5F1EA; --sand:#ECE5DA; --paper:#FBF8F3; --ink:#23211E; --muted:#5E5A53; --rule:#D8CCBA;
+  --sage:#56654F; --sage-deep:#414D3C; --gold:#A07F52; --gold-ink:#7A5E3A; --gold-soft:#D9C4A0; --error:#9B2C2C;
+  --display:"Cormorant Garamond","Garamond","Iowan Old Style",Georgia,serif;
+  --body:"Jost","Futura","Century Gothic","Avenir Next",system-ui,sans-serif;
+  --gutter:clamp(16px,4.5vw,72px); --ease:cubic-bezier(.2,.7,.1,1);
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--ivory);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--sage);color:var(--ivory)}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+img{display:block;max-width:100%;height:auto}
+h1,h2{font-family:var(--display);font-weight:400;margin:0;line-height:1.04;text-wrap:balance;font-variant-numeric:lining-nums}
+p{margin:0;text-wrap:pretty}
+.wrap{max-width:1240px;margin-inline:auto;padding-inline:var(--gutter)}
+.eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--sage);font-weight:500;margin:0}
+.small{font-size:13.5px;line-height:1.5;color:var(--muted)}
+
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:76px;border-bottom:1px solid var(--rule);padding-top:env(safe-area-inset-top,0px)}
+.brand{font-family:var(--display);font-size:25px;text-decoration:none;white-space:nowrap}
+.brand em{color:var(--gold)}
+.top-link{font-size:13px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid currentColor;padding-block:10px}
+
+.hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(32px,6vw,96px);align-items:center;padding-block:clamp(40px,6vw,88px)}
+.hero-copy{display:flex;flex-direction:column;gap:22px;min-width:0}
+.title{font-size:clamp(2.6rem,5.4vw,4.8rem);letter-spacing:-.01em}
+.title .n{color:var(--gold);font-weight:300;font-size:1.25em;line-height:.8;margin-right:.08em}
+.lede{font-size:clamp(17px,1.4vw,19px);color:var(--muted);max-width:540px}
+
+.form-card{background:var(--paper);border:1px solid var(--rule);padding:clamp(22px,3vw,34px);display:flex;flex-direction:column;gap:16px;max-width:540px;box-shadow:0 30px 60px -36px rgba(35,33,30,.28)}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{font-size:14px;font-weight:500}
+.field label span{color:var(--muted);font-weight:400}
+.field input{font:inherit;font-size:16px;color:var(--ink);background:var(--ivory);border:1px solid var(--rule);border-radius:0;min-height:50px;padding:0 14px;transition:border-color .2s,background .2s}
+.field input:hover{border-color:var(--muted)}
+.field input:focus{outline:none;border-color:var(--sage);background:#fff;box-shadow:0 0 0 3px rgba(86,101,79,.18)}
+.field input[aria-invalid="true"]{border-color:var(--error)}
+.err{font-size:13.5px;color:var(--error);min-height:0}
+.consent{display:grid;grid-template-columns:22px minmax(0,1fr);gap:12px;align-items:start;font-size:14px;line-height:1.5;color:var(--muted)}
+.consent input{width:20px;height:20px;margin:2px 0 0;accent-color:var(--sage)}
+.consent a{color:var(--ink)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:56px;padding:0 30px;border-radius:999px;background:var(--sage);color:var(--ivory);text-decoration:none;font:inherit;font-size:14px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;border:0;cursor:pointer;overflow:hidden;isolation:isolate;width:100%}
+.btn::before{content:"";position:absolute;inset:0;background:var(--ink);transform:translateY(101%);transition:transform .5s var(--ease);z-index:-1}
+.btn:hover::before{transform:translateY(0)}
+.btn[disabled]{opacity:.7;cursor:progress}
+.btn .arrow{transition:transform .4s var(--ease)}
+.btn:hover .arrow{transform:translateX(4px)}
+.success{display:flex;flex-direction:column;gap:16px}
+.success h2{font-size:clamp(2rem,3vw,2.6rem)}
+.success .btn{width:auto;align-self:flex-start}
+.text-link{font-size:13px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid currentColor;padding-block:8px;align-self:flex-start}
+
+.visual{position:relative;width:100%;max-width:470px;aspect-ratio:470/600;justify-self:end}
+.arch{position:absolute;inset:0 0 7% 0;background:var(--sage);border-radius:999px 999px 0 0;transform-origin:50% 100%}
+.arch::after{content:"";position:absolute;left:50%;top:8%;width:1px;height:15%;background:var(--gold-soft)}
+.sheet{position:absolute;left:16%;bottom:0;width:68%;box-shadow:0 30px 60px rgba(35,33,30,.28),0 3px 8px rgba(35,33,30,.16);transform:rotate(-2.5deg);transition:transform .8s var(--ease)}
+.visual:hover .sheet{transform:rotate(0deg) translateY(-6px)}
+
+.inside{background:var(--sand);padding-block:clamp(56px,7vw,100px)}
+.inside-grid{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(28px,5vw,80px);align-items:start}
+.inside h2{font-size:clamp(2rem,3.6vw,3.2rem)}
+.items{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:40px}
+.items li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:14px;align-items:start;border-top:1px solid var(--rule);padding-block:14px;font-size:16px;line-height:1.4}
+.items li::before{content:"";width:18px;height:18px;border:1.5px solid var(--sage);margin-top:2px}
+
+.author{padding-block:clamp(56px,7vw,96px)}
+.author-row{display:flex;align-items:center;gap:clamp(20px,4vw,48px)}
+.author-row img{width:120px;height:160px;object-fit:cover;object-position:50% 20%;border-radius:999px 999px 0 0;flex:0 0 auto}
+.author-row p.q{font-family:var(--display);font-style:italic;font-size:clamp(1.4rem,2.4vw,2rem);line-height:1.25;color:var(--sage)}
+.author-row .who{font-size:13px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;margin-top:10px}
+
+.foot{border-top:1px solid var(--rule);padding-block:36px 48px;display:flex;flex-direction:column;gap:8px}
+
+/* entrada */
+@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes grow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes drop{from{opacity:0;transform:translateY(60px) rotate(-8deg)}to{opacity:1;transform:rotate(-2.5deg)}}
+.hero-copy>*{animation:rise .9s var(--ease) both}
+.hero-copy>*:nth-child(2){animation-delay:.08s}.hero-copy>*:nth-child(3){animation-delay:.16s}.hero-copy>*:nth-child(4){animation-delay:.24s}
+.arch{animation:grow 1.2s var(--ease) both}
+.sheet{animation:drop 1.2s .35s var(--ease) both}
+
+@media (max-width:900px){
+  .hero{grid-template-columns:minmax(0,1fr)}
+  .visual{justify-self:center;max-width:340px}
+  .inside-grid{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .items{grid-template-columns:minmax(0,1fr)}
+  .author-row{flex-direction:column;align-items:flex-start}
+  .success .btn{width:100%}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+<header class="wrap top">
+  <a class="brand" href="/">Leve <em>&amp;</em> Forte</a>
+  <a class="top-link" href="/">Conheça o guia</a>
+</header>
+
+<main>
+  <section class="wrap hero">
+    <div class="hero-copy">
+      <p class="eyebrow">Checklist gratuito · PDF de 1 página</p>
+      <h1 class="title"><span class="n">10</span> cuidados para quem usa a caneta</h1>
+      <p class="lede">Proteína, treino, enjoo, intestino e segurança. Marque o que você já faz e descubra por onde começar, com o olhar da nutricionista Ila Bittencourt.</p>
+
+      <div class="form-card" id="cartao">
+        <form id="form" novalidate>
+          <div style="display:flex;flex-direction:column;gap:16px">
+            <div class="field">
+              <label for="nome">Seu nome</label>
+              <input id="nome" name="nome" type="text" autocomplete="given-name" required>
+            </div>
+            <div class="field">
+              <label for="email">Seu melhor e-mail</label>
+              <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="email-err">
+              <span class="err" id="email-err" aria-live="polite"></span>
+            </div>
+            <div class="field">
+              <label for="whatsapp">WhatsApp <span>(opcional)</span></label>
+              <input id="whatsapp" name="whatsapp" type="tel" autocomplete="tel" inputmode="tel" placeholder="(71) 99999-9999">
+            </div>
+            <div class="hp" aria-hidden="true"><label for="site">Não preencha</label><input id="site" name="site" type="text" tabindex="-1" autocomplete="off"></div>
+            <label class="consent" for="aceite">
+              <input id="aceite" name="aceite" type="checkbox" required aria-describedby="aceite-err">
+              <span>Quero receber o checklist e e-mails da Ila Bittencourt sobre o guia Leve &amp; Forte. Posso cancelar quando quiser. Li a <a href="/privacidade/">política de privacidade</a>.</span>
+            </label>
+            <span class="err" id="aceite-err" aria-live="polite"></span>
+            <button class="btn" type="submit" id="enviar">Quero o checklist <span class="arrow" aria-hidden="true">→</span></button>
+            <p class="small">Não pedimos nenhum dado de saúde. Seu e-mail não é vendido nem compartilhado.</p>
+          </div>
+        </form>
+        <div class="success" id="sucesso" hidden tabindex="-1">
+          <p class="eyebrow">Pronto</p>
+          <h2 id="sucesso-titulo">Seu checklist está aqui.</h2>
+          <p class="small" id="sucesso-email" hidden>Também enviamos uma cópia para o seu e-mail. Se não aparecer em alguns minutos, olhe a caixa de promoções ou de spam.</p>
+          <a class="btn" href="/assets/checklist-leve-e-forte.pdf" download="Checklist Leve e Forte.pdf">Baixar o checklist (PDF) <span class="arrow" aria-hidden="true">↓</span></a>
+          <a class="text-link" href="/">Conhecer o guia completo</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="visual" aria-hidden="true">
+      <div class="arch"></div>
+      <img class="sheet" src="/assets/checklist-preview.jpg" alt="" width="900" height="1273">
+    </div>
+  </section>
+
+  <section class="inside" aria-labelledby="dentro">
+    <div class="wrap inside-grid">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <p class="eyebrow">O que tem no checklist</p>
+        <h2 id="dentro">Os cuidados que mais fazem diferença no tratamento</h2>
+      </div>
+      <ul class="items">
+        <li>Ter uma meta de proteína</li>
+        <li>Comer proteína em todas as refeições</li>
+        <li>Fazer treino de força 3 vezes por semana</li>
+        <li>Comer pouco e sempre nos dias de enjoo</li>
+        <li>Evitar frituras e refeições grandes</li>
+        <li>Beber água ao longo do dia</li>
+        <li>Cuidar do intestino todos os dias</li>
+        <li>Fazer exames e não se suplementar por conta própria</li>
+        <li>Reconhecer os sinais de alerta</li>
+        <li>Usar só caneta com receita, comprada em farmácia</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="wrap author" aria-label="Quem preparou">
+    <div class="author-row">
+      <img src="/assets/ila-bittencourt.jpg" alt="Retrato de Ila Bittencourt, nutricionista" width="780" height="1040" loading="lazy">
+      <div>
+        <p class="q">“Cuido do corpo com fé e ciência.”</p>
+        <p class="who">Ila Bittencourt · Nutricionista · CRN-5 7780</p>
+        <p class="small" style="margin-top:6px">Especialista em saúde intestinal e mental, com foco em emagrecimento e qualidade de vida. Instagram @nutricionista_ila</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap foot">
+  <p class="small">Material educativo. Não substitui consulta, diagnóstico ou tratamento por médico ou nutricionista. O uso de canetas de GLP-1 exige prescrição e acompanhamento médico.</p>
+  <p class="small">Conteúdo produzido com apoio de inteligência artificial e revisado pela nutricionista Ila Bittencourt, CRN-5 7780.</p>
+  <p class="small">© 2026 Ila Bittencourt · <a href="/privacidade/">Política de privacidade</a></p>
+</footer>
+
+<script>
+(function () {
+  // Formulário da Brevo: cole a URL do atributo "action" do formulário criado na Brevo.
+  // Os nomes dos campos abaixo são os atributos da sua lista de contatos na Brevo.
+  var BREVO = {
+    action: "",
+    campos: { nome: "FIRSTNAME", email: "EMAIL", whatsapp: "WHATSAPP" }
+  };
+
+  var form = document.getElementById("form");
+  var btn = document.getElementById("enviar");
+  var email = document.getElementById("email");
+  var aceite = document.getElementById("aceite");
+  var emailErr = document.getElementById("email-err");
+  var aceiteErr = document.getElementById("aceite-err");
+  var ok = document.getElementById("sucesso");
+
+  function telefone(v) {
+    var d = (v || "").replace(/\D/g, "");
+    if (!d) return "";
+    if (d.length <= 11) d = "55" + d;
+    return "+" + d;
+  }
+
+  function valida() {
+    var bom = true;
+    emailErr.textContent = ""; aceiteErr.textContent = "";
+    email.removeAttribute("aria-invalid");
+    if (!email.value.trim() || !email.checkValidity()) {
+      emailErr.textContent = "Digite um e-mail válido, como nome@exemplo.com.";
+      email.setAttribute("aria-invalid", "true");
+      bom = false;
+    }
+    if (!aceite.checked) {
+      aceiteErr.textContent = "Marque a caixa acima para receber o checklist.";
+      bom = false;
+    }
+    if (!bom) (email.getAttribute("aria-invalid") ? email : aceite).focus();
+    return bom;
+  }
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (!valida()) return;
+    var nome = document.getElementById("nome").value.trim();
+    btn.disabled = true;
+    btn.firstChild.textContent = "Enviando ";
+
+    var envio = Promise.resolve();
+    var robo = document.getElementById("site").value !== "";
+    if (BREVO.action && !robo) {
+      var fd = new FormData();
+      fd.append(BREVO.campos.email, email.value.trim());
+      if (nome) fd.append(BREVO.campos.nome, nome);
+      var tel = telefone(document.getElementById("whatsapp").value);
+      if (tel) fd.append(BREVO.campos.whatsapp, tel);
+      fd.append("OPT_IN", "1");
+      fd.append("email_address_check", "");
+      fd.append("locale", "pt");
+      envio = fetch(BREVO.action, { method: "POST", body: fd, mode: "no-cors" }).catch(function () {});
+    }
+
+    envio.then(function () {
+      form.hidden = true;
+      if (nome) document.getElementById("sucesso-titulo").textContent = "Pronto, " + nome.split(" ")[0] + ". Seu checklist está aqui.";
+      if (BREVO.action) document.getElementById("sucesso-email").hidden = false;
+      ok.hidden = false;
+      ok.focus();
+    });
+  });
+})();
+</script>
+</body>
+</html>
